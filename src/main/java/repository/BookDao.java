@@ -18,7 +18,7 @@ public class BookDao {
     Logger logger = LoggerFactory.getLogger(BookDao.class);
 
     private static final String LOCATION = "src\\main\\resources\\biblioteka.csv";
-    private static final String LOCATION2 = "src\\main\\resources\\biblioteka.csv";
+    private static final String LOCATION2 = "src\\main\\resources\\biblioteka2.csv";
 
     /**
      * @return List of Books imported from resources/csv
@@ -43,12 +43,13 @@ public class BookDao {
      * @return parsed book
      */
     private Book parseBook(String s) {
+        //todo
         String[] splitedString = s.split(";");
         Book book = null;
-        if (s.length() == 3) {
+        if (splitedString.length == 3) {
             book = new Book(Long.parseLong(splitedString[0]), splitedString[1].trim(), splitedString[2].trim());
         } else {
-            book = new Book();
+            book = new Book(1l,"unknown","unknown");
             logger.error("csv line error: {}", s);
         }
         return book;

@@ -7,11 +7,6 @@ public class Book implements Serializable, Comparable<Book> {
     private String author;
     private String title;
 
-    public Book() {
-        id = 0l;
-        author = "unknown";
-        title = "unknown";
-    }
 
     public Book(Long id, String author, String title) {
         this.id = id;
